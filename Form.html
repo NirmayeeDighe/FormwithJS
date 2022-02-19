@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <title>Feedback</title>
+  <style>
+	 label {
+      float: left;
+			width: 150px;
+     }
+      #container{
+          width: 850px;
+          margin: auto;
+          background-color: beige;
+      }
+      main{
+          padding: 60px;
+      }
+
+      #sub{
+          position: absolute;
+          top: 850px;
+      }
+
+      #res{
+          position: absolute;
+          top: 850px;
+          left: 600px;
+      }
+
+      h2 {
+  margin: 16px;
+}
+
+
+#next1{
+  margin-left: 0px;
+  margin-top: 10px;
+
+}
+#next2{
+  margin-left: 0px;
+  margin-top: 10px;
+
+}
+#next3{
+  margin-left: 0px;
+  margin-top: 10px;
+
+}
+#next4{
+  margin-left: 0px;
+  margin-top: 10px;
+
+}
+#next5{
+  margin-left: 0px;
+  margin-top: 10px;
+
+}
+
+#necessary{
+  margin-top: 40px;
+}
+
+#tbl5{
+  padding-left: 20px;
+}
+  </style>
+ </head>
+ <body>
+ <div id="container">
+	 
+	 <main>
+	 <h2>Feeback</h2>
+	 <h3>Love something? Hate something? Let us know!</h3>
+		 Note : Fields marked with an asterisk(*) are mandatory
+		 <br><br>
+		 <form method="post" novalidate name="Form" id = "Form">
+			<label>Title*:</label>
+			<input type="radio" name="title" id="miss" value="miss" required="required"/>Miss
+			<input type="radio" name="title" id="mr" value="mr" required="required"/>Mr.
+			<input type="radio" name="title" id="mrs" value="mrs" required="required"/>Mrs.
+			<br><br>
+			<label for="firstName">First Name*:</label>
+			<input type="text" name="firstName" id="firstName" placeholder="First Name"  onblur="validateInputs(this,1,'FName')" />	
+			<br><br>
+
+			<div id="errorMsgFName" style = "display: none; color: red;">
+				Invalid input for your first name. Only text values permitted.
+				</div>
+			
+
+			<label for="lastName">Last Name*:</label>
+			<input type="text" name="lastName" id="lastName" placeholder="Last Name" onblur="validateInputs(this,1,'LName')"/>
+			<br><br>
+
+			<div id="errorMsgLName" style="display: none; color: red;">
+				Invalid input for your last name. Only text values permitted.
+				</div>
+			
+
+			<label for="emailId">Email Id*:</label>
+			<input type="text" name="emailId" id="emailId" placeholder="yourname@northeastern.edu" onblur="validateInputs(this,2)" />
+			<br><br>
+
+			<div id="errorMsgEmail" style="display: none; color: red;">
+				Invalid input for your email id. Only text values permitted.
+				</div>
+			
+
+			<label for="phoneNumber">Phone Number*:</label>
+			<input type="text" name="phoneNumber" id="phoneNumber" placeholder="xxx-xxx-xxxx" onblur="validateInputs(this,3)"/>
+			<br><br>
+
+			<div id="errorMsgPhone" style="display: none; color: red;">
+				Invalid input for your phone number. Only text values permitted.
+				</div>
+
+			<label for="streetAddress1">Street Address 1*:</label>
+			<input type="text" name="streetAddress1" id="streetAddress1" placeholder="address 1" onblur="validateInputs(this,5)"/>
+			<br><br>
+			<div id="errorMsgStreet1" style="display: none; color: red;">
+				Invalid input for your Street 1. Only text values permitted.
+				</div>
+
+			<label for="streetAddress2">Street Address 2:</label>
+			<input type="text" name="streetAddress2" id="streetAddress2" placeholder="address 2" onblur="street2emptyfield(this)" />
+			<br><br>
+
+			<label for="city">City*:</label>
+			<input type="text" name="city" id="city" placeholder="city" onblur="validateInputs(this,6)"/>
+			<br><br>
+			<div id="errorMsgCity" style="display: none; color: red;">
+				Invalid input for your City. Only text values permitted.
+				</div>
+
+			<label for="state">State*:</label>
+			<input type="text" name="state" id="state" placeholder="state" onblur="validateInputs(this,7)" />
+			<br><br>
+			<div id="errorMsgState" style="display: none; color: red;">
+				Invalid input for your State. Only text values permitted.
+				</div>
+			
+            <label for="zipcode">ZipCode*:</label>
+			<input type="text" name="zipcode" id="zipcode" placeholder="xxxxxx" onblur="validateInputs(this,4)"/>
+			<br><br>
+			<div id="errorMsgZipcode" style="display: none; color: red;">
+				Invalid input for your Zipcode. Only text values permitted.
+				</div>
+             
+            <label for="zipcode">How did you hear*:</label>
+			<input type='checkbox' name="source" value="facebook" /> Facebook
+            <input type='checkbox' name="source" value="google" /> Google
+            <input type='checkbox' name="source" value="yelp" /> Yelp 
+			<br><br> 
+             
+			<label for="comments">Comments*:</label>
+			<textarea name="text" id="comments" placeholder="Your comments" rows="5" cols="25"></textarea>
+			<br><br>
+
+			<br><br>
+      <p>Gift Cards</p>
+
+<select id="mySelect" onchange="SelectOptn()">
+  <option value="birthdays">Birthdays</option>
+  <option value="weddings">Weddings</option>
+  <option value="valetinesday">Valetine's Day</option>
+  <option value="newyears">New Years</option>
+  <option value="anniversary">Anniversary</option>
+</select>
+
+
+
+    <div id="next1" class = "class" style="display:none">
+      <input type="checkbox"  id="BPB" name = "optn" value="Birthday Pop-up Box" onchange="SelectOptn()"/>Birthday Pop-up Box
+
+    </div>
+    <div id="next2" class = "class" style="display:none">
+      <input type="checkbox" id="PGB" name = "optn" onchange="SelectOptn()"/>Premium gift box
+
+    </div>
+    <div id="next3" class = "class" style="display:none">
+      <input type="checkbox"  id="GHBC" name = "optn" onchange="SelectOptn()"/>Gold hearts box card
+
+    </div>
+    <div id="next4" class = "class" style="display:none">
+      <input type="checkbox"  id="PHGC" name = "optn" onchange="SelectOptn()"/>Print at home gift card
+
+    </div>
+    <div id="next5" class = "class" style="display:none">
+      <input type="checkbox" id="FGC" name = "optn" onchange="SelectOptn()"/>Fleming's gift card
+
+    </div>
+  <div id = "something" style = "display: none">
+    Mandatory Field:* <input type = "text" id = "necessary" name="compulsory" required="required" placeholder=" " />
+  </div>
+
+
+
+			<table id = "tbl" style = "display: none;">
+				<tr>
+				 <th >First Name</th>
+				 <th >Last Name</th>
+				 <th >Email Id</th>
+				 <th >Phone Number</th>
+				 <th >Street Address 1</th>
+				 <th > Street Address 2</th>
+				 <th >City</th>
+				 <th >State</th>
+				 <th >Zip Code</th>
+				 <th >Comments</th>
+				 <th >Select list</th>
+				 <th >Content</th>
+				 <th >Mandatory TF</th>   
+			   </tr>
+			   <tr>
+				 <td id = "tbl5"></td>
+				 <td id = "tbl6"></td>
+				 <td id = "tbl7"></td>
+				 <td id = "tbl8"></td>
+				 <td id = "tbl9"></td>
+				 <td id = "tbl10"></td>
+				 <td id = "tbl11"></td>
+				 <td id = "tbl12"></td>
+				 <td id = "tbl13"></td>
+				 <td id = "tbl14"></td>
+				 <td id = "tbl15"></td>
+				 <td id = "tbl16"></td>
+				 <td id = "tbl17"></td>
+
+			   </tr>
+			   
+			   </table>
+			<br><br>
+			<input type="Submit" onclick = "submittbl(event)">
+			<input type="Reset">
+			<br><br>
+		 </form>
+	 </main>
+ </div>
+
+ <script>
+
+	
+
+	function street2emptyfield(object){
+			if(object.value.length == 0)
+    			object.value = "";
+	}
+   var checkBoxSelected = "";
+	function validateInputs(object, type, nameType){
+				var regexName = /^[a-zA-z]+$/;
+				var regexStreet1 = /^[ ,a-zA-z0-9]+$/;
+				var regexStreet2 = /^[ ,a-zA-z0-9, ]+$/ | /^$/;
+				var regexCity = /^[a-zA-z]+$/;
+				var regexState = /^[a-zA-z]+$/;
+				var regexEmail = /([\w\.]+)@northeastern.edu/;
+				var regexPhone = /\d{3}-\d{3}-\d{4}$/;
+				var regexZipCode = /\d{5}$/;
+   
+				var name = 'errorMsg' + nameType;
+				switch(type){
+					case 1:
+						if (!object.value.trim().match(regexName)){
+						object.style.border="2px solid red";
+						document.getElementById(name).style.display = "block";
+						object.value="";
+					} else {
+						object.style.border="";
+						document.getElementById(name).style.display = "none";
+					}
+					break;
+					case 2:
+						if (!object.value.trim().match(regexEmail)){
+						object.style.border="2px solid red";
+						document.getElementById('errorMsgEmail').style.display = "block";
+						object.value="";
+					} else {
+						object.style.border="";
+						document.getElementById('errorMsgEmail').style.display = "none";
+					}
+					break;
+					case 3:
+						if (!object.value.trim().match(regexPhone)){
+						object.style.border="2px solid red";
+						document.getElementById('errorMsgPhone').style.display = "block";
+						object.value="";
+					} else {
+						object.style.border="";
+						document.getElementById('errorMsgPhone').style.display = "none";
+					}
+				   break;
+				   case 4:
+					   if (!object.value.trim().match(regexZipCode)){
+					   object.style.border="2px solid red";
+					   document.getElementById('errorMsgZipcode').style.display = "block";
+					   object.value="";
+				   } else {
+					   object.style.border="";
+					   document.getElementById('errorMsgZipcode').style.display = "none";
+				   }
+				   break;
+				   case 5:
+						if (!object.value.trim().match(regexStreet1)){
+						object.style.border="2px solid red";
+						document.getElementById('errorMsgStreet1').style.display = "block";
+						object.value=" ";
+					} else {
+						object.style.border="";
+						document.getElementById('errorMsgStreet1').style.display = "none";
+					}
+					break;
+					case 6:
+					if (!object.value.trim().match(regexCity)){
+					   object.style.border="2px solid red";
+					   document.getElementById('errorMsgCity').style.display = "block";
+					   object.value=" ";
+					} else {
+						object.style.border="";
+						document.getElementById('errorMsgCity').style.display = "none";
+					}
+					break;
+					case 7:
+					if (!object.value.trim().match(regexState)){
+					   object.style.border="2px solid red";
+					   document.getElementById('errorMsgState').style.display = "block";
+					   object.value=" ";
+					} else {
+						object.style.border="";
+						document.getElementById('errorMsgState').style.display = "none";
+					}
+					break;
+					
+				}
+		}
+   
+   
+ 
+   function submittbl(event){
+
+	event.preventDefault();
+
+	var a = document.forms["Form"]["firstName"].value;
+    var b = document.forms["Form"]["lastName"].value;
+    var c = document.forms["Form"]["emailId"].value;
+    var d = document.forms["Form"]["phoneNumber"].value;
+	var e = document.forms["Form"]["streetAddress1"].value;
+	var f = document.forms["Form"]["city"].value;
+	var g = document.forms["Form"]["state"].value;
+	var h = document.forms["Form"]["zipcode"].value;
+	var i = document.forms["Form"]["comments"].value;
+	var j = document.forms["Form"]["necessary"].value;
+
+	if(document.getElementById('PGB').checked || document.getElementById('BPB').checked || document.getElementById('GHBC').checked || document.getElementById('PHGC').checked || document.getElementById('FGC').checked ){
+
+		if(j == null || j == "" || j.length == 0 ){
+			alert("Please Fill All Required Field");
+      		return false;
+		}
+
+	}
+
+
+   if (a == null || a == "" || a.length == 0 || b == null || b == "" || c == null || c == "" || d == null || d == "" || e == null || e == "" || f == null || f == "" || g == null || g == "" || h == null || h == "" || i == null || i == "") {
+      alert("Please Fill All Required Field");
+      return false;
+    }
+	else{
+	  
+	   document.getElementById('tbl5').innerHTML = document.getElementById('firstName').value;	
+	   document.getElementById('tbl6').innerHTML = document.getElementById('lastName').value;
+	   document.getElementById('tbl7').innerHTML = document.getElementById('emailId').value;
+	   document.getElementById('tbl8').innerHTML = document.getElementById('phoneNumber').value; 
+	   document.getElementById('tbl9').innerHTML = document.getElementById('streetAddress1').value;
+	   document.getElementById('tbl10').innerHTML = document.getElementById('streetAddress2').value;
+	   document.getElementById('tbl11').innerHTML = document.getElementById("city").value;
+	   document.getElementById('tbl12').innerHTML = document.getElementById("state").value;
+	   document.getElementById('tbl13').innerHTML = document.getElementById("zipcode").value;
+	   document.getElementById('tbl14').innerHTML = document.getElementById("comments").value;	      
+	   document.getElementById('tbl15').innerHTML = document.getElementById("mySelect").value;
+	   document.getElementById('tbl16').innerHTML = checkBoxSelected;
+	   if(document.getElementById('PGB').checked || document.getElementById('BPB').checked || document.getElementById('GHBC').checked || document.getElementById('PHGC').checked || document.getElementById('FGC').checked ){
+
+	   document.getElementById('tbl17').innerHTML = document.getElementById("necessary").value;	 
+	   }
+	   else{
+		document.getElementById('tbl17').innerHTML ="";
+	   } 
+   
+	   document.getElementById("tbl").style.display="block";
+	   document.getElementById("Form").reset();
+	}
+   
+   }
+
+   function SelectOptn(){
+  var value = document.getElementById('mySelect').value;
+ if(value == "birthdays"){
+   checkBoxSelected = "Birthday Pop-up Box";
+   document.getElementById('next1').style.display = "block";
+   document.getElementById('next2').style.display = "none";
+   document.getElementById('next3').style.display = "none";
+   document.getElementById('next4').style.display = "none";
+   document.getElementById('next5').style.display = "none";
+}
+ else if(value == "weddings"){
+   checkBoxSelected = "Premium gift box";
+   document.getElementById('next1').style.display = "none";
+   document.getElementById('next2').style.display = "block";
+   document.getElementById('next3').style.display = "none";
+   document.getElementById('next4').style.display = "none";
+   document.getElementById('next5').style.display = "none";
+ }
+ else if(value == "valetinesday"){
+   checkBoxSelected = "Gold hearts box card";
+   document.getElementById('next1').style.display = "none";
+   document.getElementById('next2').style.display = "none";
+   document.getElementById('next3').style.display = "block";
+   document.getElementById('next4').style.display = "none";
+   document.getElementById('next5').style.display = "none";
+ }
+ else if(value == "newyears"){
+   checkBoxSelected = "Print at home gift card";
+   document.getElementById('next1').style.display = "none";
+   document.getElementById('next2').style.display = "none";
+   document.getElementById('next3').style.display = "none";
+   document.getElementById('next4').style.display = "block";
+   document.getElementById('next5').style.display = "none";
+ }
+ else if(value == "anniversary"){
+   checkBoxSelected = "Fleming's gift card";
+   document.getElementById('next1').style.display = "none";
+   document.getElementById('next2').style.display = "none";
+   document.getElementById('next3').style.display = "none";
+   document.getElementById('next4').style.display = "none";
+   document.getElementById('next5').style.display = "block";
+ }
+
+ if(document.getElementById('PGB').checked || document.getElementById('BPB').checked || document.getElementById('GHBC').checked || document.getElementById('PHGC').checked || document.getElementById('FGC').checked ){
+    document.getElementById('something').style.display = "block";
+ }
+ else{
+	checkBoxSelected="";
+	document.getElementById('something').style.display = "none";	 
+}
+
+}
+   
+   
+   
+   
+	</script>
+
+ </body>
+</html>
